@@ -9,13 +9,13 @@
  
 int main(int argc, char* argv[])
 {
-    char *locale = setlocale(LC_ALL, "");
 
     int fd[2];
     size_t size;
     char str[14]={"Program test!"};
  
-    // Аргументы приходят в виде const char*. Необходимо преобразовать в число. Заведомо известно, что там кроме чисел ничего быть не может
+    // Аргументы приходят в виде const char*. 
+    // преобразуем в число. 
     fd[0] = atoi(argv[0]);
     fd[1] = atoi(argv[1]);
  
@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
     if (size!=14)
     {
         printf("%zu", size);
-        printf("Строка не может быть прочитана полностью\n");
+        printf("Can't write all string\n");
         exit(-1);
     }
     
